@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barcode Scanner Integration</title>
+    <style>
+        #barcode-input {
+            font-size: 20px;
+            padding: 10px;
+            width: 300px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Barcode Scanner Integration</h1>
+    <input type="text" id="barcode-input" placeholder="Scan barcode here">
+    <div id="result"></div>
+
+    <!-- <script>
+        // JavaScript code will go here
+    </script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const barcodeInput = document.getElementById('barcode-input');
+            const resultDiv = document.getElementById('result');
+    
+            // Focus the input field when the page loads
+            barcodeInput.focus();
+    
+            // Add an event listener to handle the input from the barcode scanner
+            barcodeInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    // Get the scanned barcode value
+                    const barcode = barcodeInput.value;
+                    // Display the barcode value in the result div
+                    resultDiv.innerText = `Scanned Barcode: ${barcode}`;
+                    // Clear the input field for the next scan
+                    barcodeInput.value = '';
+                    // Optionally, do something with the scanned barcode, e.g., send it to a server
+                    // fetch('/your-server-endpoint', {
+                    //     method: 'POST',
+                    //     headers: { 'Content-Type': 'application/json' },
+                    //     body: JSON.stringify({ barcode: barcode })
+                    // });
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
